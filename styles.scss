@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bold {
+    font-weight: 700;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .gray {
+    color: gray;
+  }
+  
+  input[type="text"] {
+    border-radius: 20px;
+    border: 1px solid white;
+    background: none;
+    padding-inline: 1em;
+    color: white;
+    position: relative;
+  }
+  
+  .clicker {
+    cursor: pointer;
+    transition: transform 250ms ease;
+    &:active {
+      transform: scale(1.2);
+    }
+  }
+  
+  .link {
+    position: relative;
+    cursor: pointer;
+    width: max-content;
+    transition: transform 100ms ease-in;
+    &::before {
+      position: absolute;
+      top: 17px;
+      display: inline-block;
+      content: "";
+      border-top: solid 1.5px;
+      border-top-color: inherit;
+      width: 0;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+  
+  .element {
+    display: flex;
+    justify-content: space-between;
+    .userProfile {
+      display: flex;
+      gap: 20px;
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  }
+  
+  .scroll {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: #777;
+      border-radius: 10px;
+  
+      &:hover {
+        background: #555;
+      }
+    }
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon {
+    fill: black;
+    height: 30px;
+    transition: fill 250ms ease;
+    &.red {
+      fill: red;
+    }
+    &.yellow {
+      fill: gold;
+    }
+  }
+  
+  .plane {
+    fill: white;
+  }
+  
+  .container {
+    color: white;
+    background: black;
+    border-radius: 15px;
+    max-height: max-content;
+    height: 700px;
+    width: 80%;
+    max-width: 400px;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+  }
+  .profile-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+    .top {
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      .info-setting {
+        position: relative;
+        bottom: 20px;
+        font-size: 50px;
+      }
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .person-info {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+  
+    .middle {
+      overflow: hidden;
+      height: 400px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    .bottom {
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+  .commentContainer {
+    padding: 1em;
+    height: 100%;
+    display: none;
+    .commentTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: top;
+      height: 10%;
+      span {
+        font-size: 1.5em;
+      }
+    }
+  
+    .commentMiddle {
+      height: 75%;
+      overflow-y: auto;
+      overflow-x: hidden;
+  
+      .elementDiv {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  
+    .commentBottom {
+      height: 10%;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      form {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        #submitComment {
+          border: none;
+          background: none;
+          color: rgb(83, 132, 222);
+          font-size: 1.2em;
+        }
+        #addComment {
+          width: 100%;
+          height: 50%;
+          border-radius: 20px;
+          border: 1px solid white;
+          background: none;
+          padding-inline: 1em;
+          color: white;
+          position: relative;
+          &:focus {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  
+  .likeContainer {
+    height: 100%;
+    padding: 1em;
+    display: none;
+    .likeTop {
+      height: 15%;
+      .heading {
+        border-bottom: 1px solid #888;
+  
+        display: flex;
+        justify-content: space-between;
+        align-items: top;
+        height: 30%;
+        span,
+        div {
+          flex: 0;
+          font-size: 1.5em;
+        }
+      }
+  
+      .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70%;
+        input {
+          width: 80%;
+          height: 50%;
+        }
+      }
+    }
+  
+    .likesBottom {
+      height: 75%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      .likesElement {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+  
+      .follow {
+        margin-top: 5px;
+        margin-right: 1em;
+        padding: 0.5em 2em;
+        background: rgb(35, 174, 255);
+        height: max-content;
+        border-radius: 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: transform 250ms ease;
+        &:active {
+          transform: scale(1.1);
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  
+  .likeContainer.active {
+    display: block;
+  }
+  .commentContainer.active {
+    display: block;
+  }
+  .main.active {
+    display: block;
+  }
+  
